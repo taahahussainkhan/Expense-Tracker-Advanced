@@ -1,14 +1,14 @@
 import React from 'react'
 import './expenseItem.scss'
+import ExpenseDate from './ExpenseDate';
 
 
-export default function ExpenseItem() {
-    const expense_date = new Date(2021, 7, 12);
-    const expense_title = 'Car Insurance';
-    const expense_amount = 294.67;
+export default function ExpenseItem(props) {
+    const expense_title =props.title;
+    const expense_amount = props.amount;
   return (
     <div className='expense-item'>
-        <div>{expense_date.toISOString()}</div>
+        <ExpenseDate date={props.date}/>
         <div className='expense-item__description'>
             <h2>{expense_title}</h2>
             <div className='expense-item__price'>${expense_amount}</div>
